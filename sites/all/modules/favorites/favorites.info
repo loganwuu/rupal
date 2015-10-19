@@ -1,0 +1,5 @@
+name = Favorites
+description = List out my favorite movies, books and songs.
+package = Epicodus Examples
+core = 7.x
+files[] = favorites.module
