@@ -4,7 +4,7 @@ function cards_menu() {
   $items = array();
   foreach($friends as $friend)
     $items['cards/'.$friend] = array(
-      'title' => $friend."'s Card",
+      'title' => $friend,
       'page callback' => 'card_display',
       'access callback' => TRUE,
       'type' => MENU_NORMAL_ITEM,
