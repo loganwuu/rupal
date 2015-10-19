@@ -1,0 +1,52 @@
+<?php
+function groceries_menu() {
+  $items = array();
+  $items['groceries'] = array(
+    'title' => "My Groceries List",
+    'page callback' => 'groceries_display',
+    'access callback' => TRUE,
+    'type' => MENU_NORMAL_ITEM,
+    );
+  return $items;
+}
+
+function groceries_display() {
+  $groceries['eggs'] = array(
+      'name' => 'eggs',
+      'price' => 1.99,
+      'quantity' => 1,
+    );
+
+  $groceries['milk'] = array(
+      'name' => 'milk',
+      'price' => 2.99,
+      'quantity' => 1,
+    );
+
+  $groceries['apples'] = array(
+      'name' => 'apples',
+      'price' => 3.99,
+      'quantity' => 2,
+    );
+
+  $list = "";
+  $total = 0;
+  foreach($groceries as $item) {
+    $name = $item['name'];
+    $price = $item['price'];
+    $quantity = $item['quantity'];
+    $cost = $price * $quantity;
+    $list .= "
+    <p>$name</p>
+      <ul>
+        <li>Price: $$price</li>
+        <li>Quantity: $quantity</li>
+      </ul>
+    <p>Item cost: $$cost</p>
+    ";
+    $total += $cost;
+  };
+
+  $list .= "<p>Total for this grocery list is: $$total.</p>"
+  return $list;
+}
