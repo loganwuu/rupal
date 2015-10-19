@@ -1,0 +1,22 @@
+<?php
+function cards_menu() {
+  $friends = ['Paul', 'Bill', 'Andy', 'Linda', 'Cindy'];
+  $items = array();
+  foreach($friends as $friend)
+    $items['cards/'.$friend] = array(
+      'title' => $friend."'s Card",
+      'page callback' => 'card_display',
+      'access callback' => TRUE,
+      'type' => MENU_NORMAL_ITEM,
+      'page arguments' => array($friend),
+      );
+  return $items;
+}
+
+function card_display($friend) {
+  return "
+  <p>Dear $friend,</p>
+  <p>It was nice knowing you as a friend. I'm living in Portland now. Hope you can visit me sometime.</p>
+  <p>Best,<br>Logan</p>
+  ";
+}
