@@ -37,16 +37,16 @@ function groceries_display() {
     $quantity = $item['quantity'];
     $cost = $price * $quantity;
     $list .= "
-    <p>$name</p>
-      <ul>
-        <li>Price: $$price</li>
-        <li>Quantity: $quantity</li>
-      </ul>
-    <p>Item cost: $$cost</p>
+      <h2>$name</h2>
+        <ul>
+          <li>Price: $$price</li>
+          <li>Quantity: $quantity</li>
+        </ul>
+      <p>Item cost: $$cost</p>
     ";
     $total += $cost;
   };
 
-  $list .= "<p>Total for this grocery list is: $$total.</p>"
+  $list .= "<p>Total for this grocery list is: <strong>$$total</strong>.</p>";
   return $list;
 }
