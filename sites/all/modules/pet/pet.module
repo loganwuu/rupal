@@ -1,0 +1,34 @@
+<?php
+function pet_menu() {
+  $items = array();
+  $items['pet'] = array(
+    'title' => "My favorite pet",
+    'page callback' => 'pet_info',
+    'access callback' => TRUE,
+    'type' => MENU_NORMAL_ITEM,
+    );
+  return $items;
+}
+
+function pet_info() {
+  return "
+  <p>Name: <strong>Wangwang</strong></p>
+  <img src='http://xinjingrushui.com/sites/default/files/imagefield/dog_1.jpg' alt='Chinese Imperial Dog'>
+  <p>Species: Chinese Imperial Dog</p>
+  <p>Country of Origin: China</p>
+  <p>Date of Origin: 700 A.D.</p>
+  <p>Original Function: Foot Warmer to the Emperor</p>
+  <p>Today’s Function: Companion</p>
+  <p>Height: 9 inches or less</p>
+  <p>Weight: Less than 9 pounds</p>
+  <p>Character: The purpose of the Chinese Imperial Dog is that of personal and family pet and companion. They are sturdy, happy, playful little dogs with an affectionate and loving temperament that is ideal for their role in life. They are intelligent, out-going, trusting and energetic little dogs that will also be content to sit quietly on a lap for as long as it is allowed. They are vivacious and cooperative with a streak of independence. Their facial expression is sweet, wide-eyed and innocent. They are compact, well boned and muscled dogs with substance appropriate to their size.</p>
+  <p>Coat: Although most commonly trimmed to a puppy cut, owners today often keep the fur long, although this requires much more brushing. The Chinese Imperial's coat colors can come in virtually any color ranging from black to cream to white, and can be solid, tri-colored or bi-colored, with bi-colored black and white being the most common.</p>
+  <p>Character: The Chinese Imperial has a temperament and is outgoing, friendly, affectionate, happy and trusting towards all.</p>
+  <p>Temperament: This dog is a playful, energetic little dog that also loves to lay quietly on a lap for as long as it is allowed.</p>
+  <p>Exercise requirements: Because of their size, most owners often leave exercise out of their lives. However, all dogs, no matter the size, benefit from exercise - both physically and mentally. Although walks are not as important to small dogs as they are to big dogs, they should be walked at least every two or three days.</p>
+  <p>Care: If the coat is kept according to the standard: occasional bathing, ear care and regular clipping.</p>
+  <p>Training: Although not the most intelligent of breeds, they are willing to please, so training is not usually a problem.</p>
+  <p>Activity: Enjoys lounging on the couch, or on somebody's lap, but can be playful at times.</p>
+  <a href='https://en.wikipedia.org/wiki/Chinese_Imperial_Dog'>Click here for more info</a>
+  ";
+}
