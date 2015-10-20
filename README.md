@@ -6,6 +6,7 @@
 
 ## Description
 Written modules are: ```greetings```, ```specials```, ```pet```, ```favorites```, ```groceries```, and ```cards```.
+Second-modules written with hooks are: ```greetings```, ```hello_user```, ```comment_buddy```, and ```user_greetings```.
 
 
 Login Info
