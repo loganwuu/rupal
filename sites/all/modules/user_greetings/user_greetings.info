@@ -1,0 +1,5 @@
+name = User Greetings
+description = Display custom splash screens when a user logs in or out based on their user role.
+package = Epicodus Examples
+core = 7.x
+files[] = user_greetings.module

@@ -1,0 +1,58 @@
+<?php
+function user_greetings_menu() {
+  $items = array();
+  $items['hi_friend'] = array(
+    'title' => "Hello Friend!",
+    'page callback' => 'say_hi',
+    'access callback' => TRUE,
+    'type' => MENU_CALLBACK,
+  );
+
+  $items['farewell_normal'] = array(
+    'title' => "Farewell Friend!",
+    'page callback' => 'say_farewell_normal',
+    'access callback' => TRUE,
+    'type' => MENU_CALLBACK,
+  );
+
+  $items['farewell_admin'] = array(
+    'title' => "Farewell Admin!",
+    'page callback' => 'say_farewell_admin',
+    'access callback' => TRUE,
+    'type' => MENU_CALLBACK,
+  );
+
+  return $items;
+}
+
+function say_hi() {
+  global $user;
+  if(in_array('administrator', $user->roles)) {
+    drupal_set_title('Welcome to the Admin view!');
+    return '<p>Work work work!</p>';
+  } else {
+    drupal_set_title('Nice to see you friend!');
+    return '<p>Play play play!</p>';
+  }
+}
+
+function say_farewell_normal() {
+  return '<p>Fare thee well my dear friend!</p>';
+}
+
+function say_farewell_admin() {
+  return '<p>Bye bye bye!</p>';
+}
+
+function user_greetings_user_login() {
+  $_GET['destination'] = 'hi_friend';
+}
+
+function user_greetings_user_logout() {
+  global $user;
+  if(in_array('administrator', $user->roles)) {
+    $_GET['destination'] = 'farewell_admin';
+  } else {
+    $_GET['destination'] = 'farewell_normal';
+  }
+}
