@@ -34,7 +34,7 @@ function c_delete() {
   return drupal_set_message(t("Your comment has been deleted."), 'status');
 }
 
-function comment_buddy_comment_post() {
+function comment_buddy_comment_insert() {
   $_GET['destination'] = 'comment_submit';
 }
 
