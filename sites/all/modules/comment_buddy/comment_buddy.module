@@ -1,0 +1,47 @@
+<?php
+function comment_buddy_menu() {
+  $items = array();
+  $items['comment_submit'] = array(
+    'title' => "Comment Submit",
+    'page callback' => 'c_submit',
+    'access callback' => TRUE,
+    'type' => MENU_CALLBACK,
+  );
+  $items['comment_update'] = array(
+    'title' => "Comment Update",
+    'page callback' => 'c_update',
+    'access callback' => TRUE,
+    'type' => MENU_CALLBACK,
+  );
+  $items['comment_delete'] = array(
+    'title' => "Comment Delete",
+    'page callback' => 'c_delete',
+    'access callback' => TRUE,
+    'type' => MENU_CALLBACK,
+  );
+  return $items;
+}
+
+function c_submit() {
+  return drupal_set_message(t("Your comment has been submitted."), 'status');
+}
+
+function c_update() {
+  return drupal_set_message(t("Your comment has been updated."), 'status');
+}
+
+function c_delete() {
+  return drupal_set_message(t("Your comment has been deleted."), 'status');
+}
+
+function comment_buddy_comment_post() {
+  $_GET['destination'] = 'comment_submit';
+}
+
+function comment_buddy_comment_update() {
+  $_GET['destination'] = 'comment_update';
+}
+
+function comment_buddy_comment_delete() {
+  $_GET['destination'] = 'comment_delete';
+}
