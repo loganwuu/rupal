@@ -5,11 +5,11 @@
 #### By Logan Wu
 
 ## Description
-First-day modules are: ```greetings```, ```specials```, ```pet```, ```favorites```, ```groceries```, and ```cards```.
+**First-day modules:** ```greetings```, ```specials```, ```pet```, ```favorites```, ```groceries```, and ```cards```.
 
-Second-day modules utilizing hooks are: ```greetings```, ```hello_user```, ```comment_buddy```, and ```user_greetings```.
+**Second-day modules utilizing hooks:** ```greetings```, ```hello_user```, ```comment_buddy```, and ```user_greetings```.
 
-Third-day modules utilizing forms are: ```sum```, ```ping_pong```, ```title_case```, ```queen_attack```, and ```clock_angle```.
+**Third-day modules utilizing forms:** ```sum```, ```ping_pong```, ```title_case```, ```queen_attack```, and ```clock_angle```.
 
 Login Info
 ----------
