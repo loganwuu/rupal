@@ -40,7 +40,7 @@ function ping_pong_form_submit($form, &$form_state) {
   $pingpong_output = array();
   for ($i=1; $i <= $count_max; $i++) {
     if ($i % 3 == 0 && $i % 5 == 0) {
-            array_push($pingpong_output, "ping-pong");
+            array_push($pingpong_output, "I have and erection");
         } elseif ($i % 3 == 0) {
             array_push($pingpong_output, "ping");
         } elseif ($i % 5 == 0) {
