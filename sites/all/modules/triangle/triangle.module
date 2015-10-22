@@ -47,7 +47,7 @@ function triangle_form() {
 
   $form['submit'] = array(
     '#type' => 'submit',
-    '#value' => 'Go',
+    '#value' => 'Calculate',
   );
 
   return $form;
@@ -60,20 +60,20 @@ function triangle_form_submit($form, &$form_state) {
 
   $triangle_output = array();
 
-  if (($this->side_one + $this->side_two >= $this->side_three) &&
-      ($this->side_one + $this->side_three >= $this->side_two) &&
-      ($this->side_two + $this->side_three >= $this->side_one)) {
-           if ($this->side_one == $this->side_two && $this->side_one == $this->side_three) {
+  if (($side_one + $side_two >= $side_three) &&
+      ($side_one + $side_three >= $side_two) &&
+      ($side_two + $side_three >= $side_one)) {
+           if ($side_one == $side_two && $side_one == $side_three) {
            array_push($triangle_output, "This is an equilateral triangle.");
-           } elseif (($this->side_one == $this->side_two && $this->side_two != $this->side_three) ||
-                      ($this->side_one == $this->side_three && $this->side_three != $this->side_two) ||
-                      ($this->side_two == $this->side_three && $this->side_three != $this->side_one)) {
+           } elseif (($side_one == $side_two && $side_two != $side_three) ||
+                      ($side_one == $side_three && $side_three != $side_two) ||
+                      ($side_two == $side_three && $side_three != $side_one)) {
                        array_push($triangle_output, "This is an isosceles triangle.");
            } else {
                        array_push($triangle_output, "This is an scalene triangle.");
            }
      } else {
-       array_push($triangle_output, "The combination of three numbers does not make a valid triangle."_;
+       array_push($triangle_output, "The combination of three numbers does not make a valid triangle.");
      }
 
      $_SESSION['output_triangle'] = $triangle_output;
@@ -81,6 +81,10 @@ function triangle_form_submit($form, &$form_state) {
 }
 
 function triangle_success() {
-  $answer = $_SESSION['output_triangle'];
-  return "$answer";
+  $output = '';
+  foreach ($_SESSION['output_triangle'] as $value) {
+    $output = $output . $value;
+  }
+  $output = $output;
+  return "$output";
 }
