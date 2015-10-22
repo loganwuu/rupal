@@ -11,6 +11,8 @@
 
 **Third-day modules utilizing forms:** ```sum```, ```ping_pong```, ```title_case```, ```queen_attack```, and ```clock_angle```.
 
+**Fourth-day modules utilizing forms with element validation:** ```sum```, ```ping_pong```, ```triangle tracker```, ```state_poll```, and ```rock_paper_scissors```.
+
 Login Info
 ----------
 **Database name:** ```rupal```

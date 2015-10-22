@@ -1,0 +1,86 @@
+<?php
+
+function triangle_menu() {
+  $items = array();
+  $items['triangle'] = array(
+    'title' => 'Triangle Type',
+    'page callback' => 'drupal_get_form',
+    'page arguments' => array('triangle_form'),
+    'access callback' => TRUE,
+    'type' => MENU_NORMAL_ITEM,
+  );
+
+  $items['triangle_success_page'] = array(
+    'title' => 'Success',
+    'page callback' => 'triangle_success',
+    'access callback' => TRUE,
+    'type' => MENU_CALLBACK,
+  );
+
+  return $items;
+}
+
+function triangle_form() {
+  $form['first_number'] = array(
+    '#title' => 'First Side',
+    '#type' => 'textfield',
+    '#description' => t('Please enter the first side of your triangle.'),
+    '#element_validate' => array('element_validate_integer_positive'),
+    '#required' => TRUE,
+  );
+
+  $form['second_number'] = array(
+    '#title' => 'Second Side',
+    '#type' => 'textfield',
+    '#description' => t('Please enter the second side of your triangle.'),
+    '#element_validate' => array('element_validate_integer_positive'),
+    '#required' => TRUE,
+  );
+
+  $form['third_number'] = array(
+    '#title' => 'Third Side',
+    '#type' => 'textfield',
+    '#description' => t('Please enter the third side of your triangle.'),
+    '#element_validate' => array('element_validate_integer_positive'),
+    '#required' => TRUE,
+  );
+
+  $form['submit'] = array(
+    '#type' => 'submit',
+    '#value' => 'Go',
+  );
+
+  return $form;
+}
+
+function triangle_form_submit($form, &$form_state) {
+  $side_one = $form_state['values']['first_number'];
+  $side_two = $form_state['values']['second_number'];
+  $side_three = $form_state['values']['third_number'];
+
+  $triangle_output = array();
+
+  if (($this->side_one + $this->side_two >= $this->side_three) &&
+      ($this->side_one + $this->side_three >= $this->side_two) &&
+      ($this->side_two + $this->side_three >= $this->side_one)) {
+           if ($this->side_one == $this->side_two && $this->side_one == $this->side_three) {
+           array_push($triangle_output, "This is an equilateral triangle.");
+           } elseif (($this->side_one == $this->side_two && $this->side_two != $this->side_three) ||
+                      ($this->side_one == $this->side_three && $this->side_three != $this->side_two) ||
+                      ($this->side_two == $this->side_three && $this->side_three != $this->side_one)) {
+                       array_push($triangle_output, "This is an isosceles triangle.");
+           } else {
+                       array_push($triangle_output, "This is an scalene triangle.");
+           }
+     } else {
+       array_push($triangle_output, "The combination of three numbers does not make a valid triangle."_;
+     }
+
+     $_SESSION['output_triangle'] = $triangle_output;
+     $form_state['redirect'] = 'triangle_success_page';
+}
+
+function triangle_success() {
+  $answer = $_SESSION['output_triangle'];
+  return "$answer";
+}
