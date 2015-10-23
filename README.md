@@ -1,6 +1,6 @@
 # Writing Custom Modules
 
-##### A Drupal website with practicing writing different custom modules. (10/19 - 21/15)
+##### A Drupal website with practicing writing different custom modules. (10/19-22/15)
 
 #### By Logan Wu
 
